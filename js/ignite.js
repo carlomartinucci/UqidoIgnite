@@ -1,5 +1,6 @@
 $(function () {
   $('.progress').hide();
+  setBackground(1, "#preload");
 });
 
 function setBackground(slideNumber, of) {
@@ -9,21 +10,30 @@ function setBackground(slideNumber, of) {
 
 function startIgnite() {
   $('.progress').show();
-  $('.progress-bar').css("background-color", setColor(1));
-  $('.actual-slide').html("" + 1 );
+  $('#actual-slide').html("" + 1 );
   setBackground(1);
   setBackground(2, "#preload");
   content = $("#"+1).html();
   $("#content").html(content);
   progressBar(15000, 200);
+  $('#content').css("cursor", "none");
 }
 
 function endIgnite() {
   $('.progress').hide();
-  $('.actual-slide').html("");
+  $('#actual-slide').html(' <span style="color: white">Carlo Martinucci</span> <i class="fa fa-fire" style="color: rgba(255,83,13,0.8)"></i> ');
   setBackground(21);
   content = $("#tnx").html();
+  $('#content').css("background-color", setColor('asd'));
   $("#content").html(content);
+  setTimeout(function(){
+    $('#content').animate({
+        opacity: 0,
+      }, 5000, function() {
+        $('#content').css("cursor", "auto");
+         // Animation complete.
+      });
+  }, 2000)
 }
 
 // function progressBar(T) {
@@ -52,7 +62,7 @@ function endIgnite() {
 // }
 
 function progressBar(T, t) {
-  var actualSlide = 1;
+  var actualSlide = 20;
   var percentage = 0;
   var color = 0;
   var delta_percentage = t/T;
@@ -61,10 +71,10 @@ function progressBar(T, t) {
       percentage += dp;
       var newVal = 3.10 * percentage * $(window).width() / 10;
       $('.progress-bar').css("width", newVal);
-      $('.progress-bar').html("" + Math.round(percentage*T/1000) );
+      //$('.progress-bar').html("" + Math.round(percentage*T/1000) );
       if (percentage>=0.98){
         actualSlide += 1;
-        $('.actual-slide').html("" + actualSlide );
+        $('#actual-slide').html("" + actualSlide );
         setBackground(actualSlide);
         setBackground(actualSlide+1, "#preload");
         content = $("#"+actualSlide).html();
@@ -89,71 +99,23 @@ function progressBar(T, t) {
 function setColor(slideNumber) {
   var color = ""
   switch(slideNumber) {
-    case 1:
-      color = "#390"
-      break;
     case 2:
-      color = "#910"
+      color = "rgba(255,0,0,0.7)"
       break;
     case 3:
-      color = "#099"
-      break;
-    case 4:
-      color = ""
+      color = "rgba(255, 115, 132,0.7)"
       break;
     case 5:
-      color = ""
-      break;
-    case 6:
-      color = ""
+      color = "rgba(255,0,0,0.7)"
       break;
     case 7:
-      color = ""
-      break;
-    case 8:
-      color = ""
-      break;
-    case 9:
-      color = ""
-      break;
-    case 10:
-      color = ""
-      break;
-    case 11:
-      color = ""
-      break;
-    case 12:
-      color = ""
-      break;
-    case 13:
-      color = ""
+      color = "rgba(10,123,10,0.7)"
       break;
     case 14:
-      color = ""
-      break;
-    case 15:
-      color = ""
-      break;
-    case 16:
-      color = ""
-      break;
-    case 17:
-      color = ""
-      break;
-    case 18:
-      color = ""
-      break;
-    case 19:
-      color = ""
-      break;
-    case 20:
-      color = ""
-      break;
-    case 21:
-      color = ""
+      color = "rgba(255,255,10,0.7)"
       break;
     default:
-      color = "#000"
+      color = "#333"
   }
   return color
 }
@@ -161,22 +123,18 @@ function setColor(slideNumber) {
 function animateSlide(slideNumber) {
   switch(slideNumber) {
     case 1:
-      console.log(1)
       break;
     case 2:
-      console.log(2)
       break;
     case 3:
-      console.log(3)
       break;
     case 4:
-      console.log(4)
       setTimeout(function(){
         $('.slide4volume').removeClass("fa-volume-up").addClass("fa-volume-down");
         setTimeout(function(){
           $('.slide4volume').removeClass("fa-volume-down").addClass("fa-volume-off");
-        }, 3000);
-      }, 5000);
+        }, 1000);
+      }, 8000);
       break;
     case 5:
       break;
@@ -189,8 +147,17 @@ function animateSlide(slideNumber) {
     case 9:
       break;
     case 10:
+      setTimeout(function(){
+        $('.sitetree').append("<br><i class='fa fa-sitemap'></i><i class='fa fa-sitemap'></i>")
+        setTimeout(function(){
+          $('.sitetree').append("<br><i class='fa fa-sitemap'></i><i class='fa fa-sitemap'></i><i class='fa fa-sitemap'></i><i class='fa fa-sitemap'></i>")
+        }, 1000);
+      }, 8000);
       break;
     case 11:
+      setTimeout(function(){
+        $('.duplicate').append('<br><i class="fa fa-square"></i><i class="fa fa-square"></i><i class="fa fa-arrow-right"></i><i class="fa fa-square-o"></i>')
+      }, 6000);
       break;
     case 12:
       break;
@@ -207,6 +174,18 @@ function animateSlide(slideNumber) {
     case 18:
       break;
     case 19:
+      setTimeout(function(){
+        $('.battery').removeClass("fa-battery-0").addClass("fa-battery-1");
+        setTimeout(function(){
+          $('.battery').removeClass("fa-battery-1").addClass("fa-battery-2");
+          setTimeout(function(){
+            $('.battery').removeClass("fa-battery-2").addClass("fa-battery-3");
+            setTimeout(function(){
+              $('.battery').removeClass("fa-battery-3").addClass("fa-battery-4");
+            }, 1000);
+          }, 1000);
+        }, 1000);
+      }, 8000);
       break;
     case 20:
       break;

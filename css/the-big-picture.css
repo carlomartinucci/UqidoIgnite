@@ -1,43 +1,12 @@
+body {
+  background-color: black;
+}
 
 #content {
   width: 100vw;
   height: 100vh;
 	background-image: url("../img/0.jpg");
   background-size: 100%;
-}
-
-#content .mybtncontainer {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-top: -150px;
-  margin-left: -150px;
-}
-
-#content .mybtn {
-  width: 300px;
-  height: 300px;
-  line-height: 300px;
-  background-color: rgba(255,83,13,1);
-  box-shadow: 0 15px rgba(0,0,0,0.2);
-  cursor: pointer;
-  position: relative;
-  border-radius: 150px;
-  color: white;
-  text-align: center;
-  font-size: 150px;
-}
-
-#content .mybtn:hover {
-  background-color: rgba(255,83,13,0.7);
-  box-shadow: 0 12px rgba(0,0,0,0.25);
-  top: 3px;
-}
-
-#content .mybtn:active {
-  background-color: rgba(255,83,13,0.7);
-  box-shadow: 0 0 rgba(0,0,0,0);
-  top: 15px;
 }
 
 #content p {
@@ -49,6 +18,46 @@
   transform: translate(-50%, -50%);
   border-radius: 3vh;
   padding: 0 5vh;
+  background-color: rgba(255,255,255,0.3);
+  text-align: center;
+}
+
+#content #start {
+  left: 20%;
+  cursor: pointer;
+  color: rgba(255,83,13,0.6);
+  background-color: rgba(255,255,255,0.3);
+}
+
+#content #start:hover {
+  color: rgba(255,83,13,0.6);
+  background-color: rgba(255,255,255,0.8);
+}
+
+#content #start:active {
+  color: rgba(255,83,13,1);
+  background-color: rgba(255,255,255,0.8);
+}
+
+.progress {
+  background-color: rgba(0,0,0,0);
+  height: 4px;
+  border-radius: 2px;
+}
+
+.spiegami {
+  letter-spacing: -10px;
+}
+
+#actual-slide {
+  position: absolute;
+  top: 1vh;
+  right: 1vh;
+  min-width: 5vh;
+  text-align: center;
+  font-size: 24px;
+  border-radius: 3vh;
+  padding: 1vh;
   background-color: rgba(255,255,255,0.3);
 }
 
