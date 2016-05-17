@@ -62,7 +62,7 @@ function endIgnite() {
 // }
 
 function progressBar(T, t) {
-  var actualSlide = 20;
+  var actualSlide = 1;
   var percentage = 0;
   var color = 0;
   var delta_percentage = t/T;
