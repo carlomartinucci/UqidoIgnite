@@ -53,9 +53,11 @@ body {
   position: absolute;
   top: 1vh;
   right: 1vh;
-  min-width: 5vh;
+  min-width: 6vh;
+  height: 6vh;
+  line-height: 4vh;
   text-align: center;
-  font-size: 24px;
+  font-size: 4vh;
   border-radius: 3vh;
   padding: 1vh;
   background-color: rgba(255,255,255,0.3);

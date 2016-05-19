@@ -21,7 +21,9 @@ function startIgnite() {
 
 function endIgnite() {
   $('.progress').hide();
-  $('#actual-slide').html(' <span style="color: white">Carlo Martinucci</span> <i class="fa fa-fire" style="color: rgba(255,83,13,0.8)"></i> ');
+  $('#actual-slide').html('<span style="color: white">Carlo Martinucci</span> <i id="flame" class="fa fa-fire" style="color: rgba(255,83,13,0.8); transition: color 0.5s ease"></i>');
+  alternateFlame1();
+  $('#actual-slide').css('padding', "1vh 2vh");
   setBackground(21);
   content = $("#tnx").html();
   $('#content').css("background-color", setColor('asd'));
@@ -35,31 +37,6 @@ function endIgnite() {
       });
   }, 2000)
 }
-
-// function progressBar(T) {
-//   console.log("progressBar("+T+")");
-//   var actualSlide = 1;
-//   advanceProgressBar(T);
-//   function advanceProgressBar(T) {
-//     console.log("advanceProgressBar("+T+")");
-//     $('.progress-bar').animate({width: "250px"}, T, function () {
-//       actualSlide += 1;
-//       $('.actual-slide').html("" + actualSlide );
-//       setBackground(actualSlide);
-//       setBackground(actualSlide+1, "#preload");
-//       content = $("#"+actualSlide).html();
-//       $("#content").html(content);
-//       // $('.progress-bar').css("background-color", "#" + color);
-//       if (actualSlide <= 20 ) {
-//         $('.progress-bar').animate({width: "0px"}, 1);
-//         advanceProgressBar(T);
-//       }
-//       else {
-//         endIgnite();
-//       }
-//     });
-//   }
-// }
 
 function progressBar(T, t) {
   var actualSlide = 1;
@@ -115,7 +92,7 @@ function setColor(slideNumber) {
       color = "rgba(10,123,10,0.7)"
       break;
     case 11:
-      color = "rgba(20,183,183,0.7)"
+      color = "rgba(20,133,133,0.7)"
       break;
     case 13:
       color = "rgba(255,255,10,0.7)"
@@ -130,7 +107,7 @@ function setColor(slideNumber) {
       color = "rgba(123,10,123,0.7)"
       break;
     case 20:
-      color = "rgba(255,0,0,0.7)"
+      color = "rgba(255,255,10,0.7)"
       break;
     default:
       color = "#333"
@@ -179,10 +156,10 @@ function animateSlide(slideNumber) {
     case 11:
       setTimeout(function(){
         $('.duplicate').append(
-          '<br><i style="color: rgba(10,60,123,0.7)" class="dup1 fa fa-square-o"></i>' +
-          '<i style="color: rgba(10,123,60,0.7)" class="dup2 fa fa-square-o"></i>' +
-          '<i class="fa fa-arrow-right"></i>' +
-          '<i style="color: rgba(20,183,183,0.7)" class="fa fa-square"></i>'
+          '<br><i style="color: rgba(10,60,123,0.7); transition: color 1s;" class="dup1 fa fa-square-o"></i> ' +
+          '<i style="color: rgba(10,123,60,0.7); transition: color 1s;" class="dup2 fa fa-square-o"></i> ' +
+          '<i class="fa fa-arrow-right"></i> ' +
+          '<i style="color: rgba(20,133,133,0.7)" class="fa fa-square"></i> '
         );
         setTimeout(function(){
           $('.dup1').css("color", "rgba(10,0,183,0.7)");
@@ -217,7 +194,7 @@ function animateSlide(slideNumber) {
             }, 1000);
           }, 1000);
         }, 1000);
-      }, 8000);
+      }, 10000);
       break;
     case 20:
       break;
@@ -231,7 +208,7 @@ function wikiSlide() {
   for (i=0;i<20;i++){
     for (j=0;j<20;j++){
       if ((i==17 && j==6) || (i==16 && j==18) || (i==10 && j==4)) {
-        content += "<i class='fa fa-pencil' style='color: rgba(123,123,10,0.7);'></i> "
+        content += "<i class='alternate-yellow fa fa-pencil' style='color: rgba(123,123,10,0.7); transition: color 0.5s ease;'></i> "
       } else if ( i>7 && i<12 && j>6 && j<13 ) {
         content += "<i class='fa fa-eye' style='opacity: 0;'></i> "
       } else {
@@ -242,4 +219,37 @@ function wikiSlide() {
   }
 
   $('.wikislide').append(content);
+  alternateYellow1();
+}
+
+function alternateYellow1 () {
+  $('.alternate-yellow').css('color', 'rgba(123,123,10,0.7)');
+  setTimeout(function(){
+    if($('.alternate-yellow').length > 3) {
+      alternateYellow2();
+    }
+  }, 500)
+}
+
+function alternateYellow2 () {
+  $('.alternate-yellow').css('color', 'rgba(163,163,10,0.7)')
+  setTimeout(function(){
+    if($('.alternate-yellow').length > 3) {
+      alternateYellow1();
+    }
+  }, 500)
+}
+
+function alternateFlame1 () {
+  $('#flame').css('color', 'rgba(255,83,13,0.6)')
+  setTimeout(function(){
+    alternateFlame2();
+  }, 1000)
+}
+
+function alternateFlame2 () {
+  $('#flame').css('color', 'rgba(255,83,13,1)')
+  setTimeout(function(){
+    alternateFlame1();
+  }, 200)
 }
