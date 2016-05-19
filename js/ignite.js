@@ -108,11 +108,29 @@ function setColor(slideNumber) {
     case 5:
       color = "rgba(255,0,0,0.7)"
       break;
+    case 6:
+      color = "rgba(10,10,123,0.7)"
+      break
     case 7:
       color = "rgba(10,123,10,0.7)"
       break;
+    case 11:
+      color = "rgba(20,183,183,0.7)"
+      break;
+    case 13:
+      color = "rgba(255,255,10,0.7)"
+      break;
     case 14:
       color = "rgba(255,255,10,0.7)"
+      break;
+    case 15:
+      color = "rgba(255,255,10,0.7)"
+      break;
+    case 18:
+      color = "rgba(123,10,123,0.7)"
+      break;
+    case 20:
+      color = "rgba(255,0,0,0.7)"
       break;
     default:
       color = "#333"
@@ -128,7 +146,7 @@ function animateSlide(slideNumber) {
       break;
     case 3:
       break;
-    case 4:
+    case 4444:
       setTimeout(function(){
         $('.slide4volume').removeClass("fa-volume-up").addClass("fa-volume-down");
         setTimeout(function(){
@@ -139,6 +157,10 @@ function animateSlide(slideNumber) {
     case 5:
       break;
     case 6:
+      setTimeout(function(){
+          $('.change-color').css("color", "rgba(123,10,123,0.7)")
+          $('.progress-bar').css("background-color", "rgba(123,10,123,0.7)")
+        }, 10000);
       break;
     case 7:
       break;
@@ -156,8 +178,17 @@ function animateSlide(slideNumber) {
       break;
     case 11:
       setTimeout(function(){
-        $('.duplicate').append('<br><i class="fa fa-square"></i><i class="fa fa-square"></i><i class="fa fa-arrow-right"></i><i class="fa fa-square-o"></i>')
-      }, 6000);
+        $('.duplicate').append(
+          '<br><i style="color: rgba(10,60,123,0.7)" class="dup1 fa fa-square-o"></i>' +
+          '<i style="color: rgba(10,123,60,0.7)" class="dup2 fa fa-square-o"></i>' +
+          '<i class="fa fa-arrow-right"></i>' +
+          '<i style="color: rgba(20,183,183,0.7)" class="fa fa-square"></i>'
+        );
+        setTimeout(function(){
+          $('.dup1').css("color", "rgba(10,0,183,0.7)");
+          $('.dup2').css("color", "rgba(10,183,0,0.7)");
+        }, 1000)
+      }, 8000);
       break;
     case 12:
       break;
@@ -168,6 +199,7 @@ function animateSlide(slideNumber) {
     case 15:
       break;
     case 16:
+      wikiSlide()
       break;
     case 17:
       break;
@@ -192,4 +224,22 @@ function animateSlide(slideNumber) {
     case 21:
       break;
   }
+}
+
+function wikiSlide() {
+  var content = ""
+  for (i=0;i<20;i++){
+    for (j=0;j<20;j++){
+      if ((i==17 && j==6) || (i==16 && j==18) || (i==10 && j==4)) {
+        content += "<i class='fa fa-pencil' style='color: rgba(123,123,10,0.7);'></i> "
+      } else if ( i>7 && i<12 && j>6 && j<13 ) {
+        content += "<i class='fa fa-eye' style='opacity: 0;'></i> "
+      } else {
+        content += "<i class='fa fa-eye'></i> "
+      }
+    }
+    content += "<br>"
+  }
+
+  $('.wikislide').append(content);
 }
