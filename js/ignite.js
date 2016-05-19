@@ -157,7 +157,7 @@ function animateSlide(slideNumber) {
       setTimeout(function(){
         $('.duplicate').append(
           '<br><i style="color: rgba(10,60,123,0.7); transition: color 1s;" class="dup1 fa fa-square-o"></i> ' +
-          '<i style="color: rgba(10,123,60,0.7); transition: color 1s;" class="dup2 fa fa-square-o"></i> ' +
+          '<i style="color: rgba(10,123,10,0.7); transition: color 1s;" class="dup2 fa fa-square-o"></i> ' +
           '<i class="fa fa-arrow-right"></i> ' +
           '<i style="color: rgba(20,133,133,0.7)" class="fa fa-square"></i> '
         );
